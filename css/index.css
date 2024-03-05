@@ -87,14 +87,19 @@ header, footer {
 }
 
 header {
-    background-color: var(--header-bg);
     color: white;
-    border-bottom: solid 3px var(--theme-green);
     height: var(--header-height);
     position: fixed;
     left: 0;
     right: 0;
     z-index: 5000;
+    border-bottom: solid 3px transparent;
+    transition: 0.5s ease-in-out;
+}
+
+header.black-bg {
+    background-color: var(--header-bg);
+    border-bottom: solid 3px var(--theme-green);
 }
 
 #header-logo > a {
