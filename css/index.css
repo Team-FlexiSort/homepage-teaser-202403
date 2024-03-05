@@ -21,6 +21,30 @@
     --nav-font-size: 20px;
 }
 
+@media screen and (max-width: 1650px) {
+    :root {
+        --main-width: 1200px;
+    }
+}
+
+@media screen and (max-width: 1250px) {
+    :root {
+        --main-width: 900px;
+    }
+}
+
+@media screen and (max-width: 950px) {
+    :root {
+        --main-width: 100%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    nav {
+        display: none;
+    }
+}
+
 body {
     background-color: var(--bg-color);
     font-family: "Yu Gothic", "游ゴシック", "YuGothic", "游ゴシック体", "ヒラギノ角ゴ Pro W3", 'Noto Sans JP', "メイリオ", sans-serif;
@@ -190,12 +214,31 @@ div.bottom-heading {
     color: var(--bg-glay-color);
     font-family: 'Roboto', sans-serif;
     font-weight: 700;
+    z-index: 0;
+    cursor: default;
+    pointer-events: none;
+    white-space: nowrap;
 }
 
 main > section:nth-child(2n+1) div.bottom-heading {
     color: var(--bg-glay-color);
 }
 
+div.section-container {
+    display: flex;
+    z-index: 1;
+    position: relative;
+}
+
+div.section-container > div {
+    flex: 1;
+}
+
+@media screen and (max-width: 768px) {
+    div.section-container {
+        flex-direction: column;
+    }
+}
 
 p.subtitle {
     font-weight: 700;
