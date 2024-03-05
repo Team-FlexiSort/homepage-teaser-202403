@@ -241,7 +241,7 @@ div.bottom-heading {
 }
 
 main > section:nth-child(2n+1) div.bottom-heading {
-    color: var(--bg-glay-color);
+    color: var(--bg-color);
 }
 
 div.section-container {
