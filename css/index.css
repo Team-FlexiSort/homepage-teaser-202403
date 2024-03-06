@@ -239,7 +239,7 @@ main > section:nth-child(2n+1) > h2::before {
 div.bottom-heading {
     position: absolute;
     bottom: 20px;
-    right: var(--main-lr-pd);
+    left: var(--main-lr-pd);
     font-size: var(--bottom-heading-font-size);
     color: var(--bg-glay-color);
     font-family: 'Roboto', sans-serif;
