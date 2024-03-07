@@ -36,11 +36,20 @@ anchorLinks.forEach(link => {
 
 const keyVisualElement = document.getElementById('key-visual');
 const keyVisualHeight = keyVisualElement.offsetHeight;
-document.addEventListener('scroll', () => {
+
+function updateHeader() {
     if (window.scrollY >= keyVisualHeight - headerHeight - 300) {
         header.classList.add('black-bg');
     }
     else {
         header.classList.remove('black-bg');
     }
+}
+
+window.addEventListener('load', (event) => {
+    updateHeader();
+});
+
+window.addEventListener('scroll', (event) => {
+    updateHeader();
 });
