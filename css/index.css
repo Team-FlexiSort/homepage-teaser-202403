@@ -207,7 +207,7 @@ h2 {
     font-weight: 500;
     margin: 0;
     margin-bottom: 1rem;
-    padding-left: 2rem;
+    padding-left: 2.5rem;
     position: relative;
 }
 
@@ -224,17 +224,21 @@ h2 > div:nth-child(2) {
 h2::before {
     content: '';
     position: absolute;
-    top: 60%;
-    left: 0.3rem;
+    top: 55%;
+    left: 0.2rem;
     transform: translateY(-50%);
-    width: 30px;
-    height: 30px;
-    background: url(/static/triangle-or.svg) no-repeat;
+    width: 1.5rem;
+    height: 1.5rem;
+    background: no-repeat left / contain url(/static/triangle-or.svg);
+}
+
+main > section:nth-child(2n+1) h2::before {
+    background: no-repeat left / contain url(/static/triangle-gr.svg);
 }
 
 h3 {
     font-weight: 500;
-    font-size: var(--large-font-size);
+    font-size: var(--nav-font-size);
     padding-left: 2rem;
     position: relative;
 }
@@ -242,16 +246,16 @@ h3 {
 h3::before {
     content: '';
     position: absolute;
-    top: 60%;
+    top: 50%;
     left: 0.3rem;
     transform: translateY(-50%);
-    width: 30px;
-    height: 30px;
-    background: url(/static/triangle-gr.svg) no-repeat;
+    width: 1rem;
+    height: 1rem;
+    background: no-repeat left / contain url(/static/triangle-gr.svg);
 }
 
 main > section:nth-child(2n+1) h3::before {
-    background: url(/static/triangle-or.svg) no-repeat;
+    background: no-repeat left / contain url(/static/triangle-or.svg);
 }
 
 div.bottom-heading {
@@ -266,6 +270,24 @@ div.bottom-heading {
     cursor: default;
     pointer-events: none;
     white-space: nowrap;
+}
+
+h4 {
+    position: relative;
+    padding-left: 1.25rem;
+}
+
+h4::before {
+    content: '';
+    position: absolute;
+    left: 0.3rem;
+    width: 2px;
+    height: 100%;
+    background-color: var(--theme-green);
+}
+
+main > section:nth-child(2n+1) h4::before {
+    background-color: var(--theme-orange);
 }
 
 main > section:nth-child(2n+1) div.bottom-heading {
