@@ -20,6 +20,7 @@
     --h2-font-size: 2rem;
     --large-font-size: 1.5rem;
     --nav-font-size: 1.25rem;
+    --h3-font-size: 1.25rem;
     --bottom-heading-font-size: 12.5rem;
 }
 
@@ -317,7 +318,7 @@ main > section:nth-child(2n+1) h2::before {
 
 h3 {
     font-weight: 500;
-    font-size: var(--nav-font-size);
+    font-size: var(--h3-font-size);
     padding-left: 2rem;
     position: relative;
 }
