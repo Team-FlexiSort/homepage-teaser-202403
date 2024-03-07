@@ -132,6 +132,29 @@ a.external-link::before {
     transform: translateY(-50%);
 }
 
+ul.simple-list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+ul.simple-list > li {
+    padding-left: 1.5rem;
+    margin-bottom: 0.25rem;
+    position: relative;
+}
+
+ul.simple-list > li::before {
+    content: '';
+    position: absolute;
+    left: 0.5rem;
+    width: 2px;
+    height: 90%;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--theme-green);
+}
+
 header, section, footer {
     padding: 0 var(--main-lr-pd);
 }
@@ -392,29 +415,6 @@ p.subtitle {
     font-size: var(--large-font-size);
     margin: 0;
     margin-bottom: 0.25rem;
-}
-
-ul.event-detail {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-}
-
-ul.event-detail > li {
-    padding-left: 1.5rem;
-    margin-bottom: 0.25rem;
-    position: relative;
-}
-
-ul.event-detail > li::before {
-    content: '';
-    position: absolute;
-    left: 0.5rem;
-    width: 2px;
-    height: 90%;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: var(--theme-green);
 }
 
 
