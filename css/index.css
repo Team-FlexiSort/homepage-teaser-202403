@@ -25,7 +25,7 @@
 @media screen and (max-width: 1650px) {
     :root {
         --main-width: 1300px;
-        --bottom-heading-font-size: 150px;
+        --bottom-heading-font-size: 9rem;
     }
 }
 
@@ -38,7 +38,7 @@
 @media screen and (max-width: 1150px) {
     :root {
         --main-width: 900px;
-        --bottom-heading-font-size: 100px;
+        --bottom-heading-font-size: 6.25rem;
     }
 }
 
@@ -50,12 +50,12 @@
 
 @media screen and (max-width: 768px) {
     :root {
-        --header-height: 60px;
+        --header-height: 4rem;
         
-        --xlarge-font-size: 30px;
-        --h2-font-size: 24px;
-        --large-font-size: 16px;
-        --nav-font-size: 16px;
+        --xlarge-font-size: 2rem;
+        --h2-font-size: 1.5rem;
+        --large-font-size: 1rem;
+        --nav-font-size: 1rem;
         --bottom-heading-font-size: 12vw;
     }
 
@@ -232,8 +232,26 @@ h2::before {
     background: url(/static/triangle-or.svg) no-repeat;
 }
 
-main > section:nth-child(2n+1) > h2::before {
+h3 {
+    font-weight: 500;
+    font-size: var(--large-font-size);
+    padding-left: 2rem;
+    position: relative;
+}
+
+h3::before {
+    content: '';
+    position: absolute;
+    top: 60%;
+    left: 0.3rem;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 30px;
     background: url(/static/triangle-gr.svg) no-repeat;
+}
+
+main > section:nth-child(2n+1) h3::before {
+    background: url(/static/triangle-or.svg) no-repeat;
 }
 
 div.bottom-heading {
