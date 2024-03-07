@@ -51,6 +51,8 @@
 @media screen and (max-width: 768px) {
     :root {
         --main-width: 100%;
+
+        --header-height: 60px;
         
         --xlarge-font-size: 30px;
         --h2-font-size: 24px;
@@ -130,7 +132,7 @@ nav > ul > li > a {
 div.logo {
     font-family: 'Roboto', sans-serif;
     font-weight: 900;
-    font-size: 30px;
+    font-size: var(--h2-font-size);
 }
 
 #key-visual {
@@ -275,6 +277,7 @@ div.section-container > div:nth-child(2) {
 
 div.section-container > div.image > img {
     width: 100%;
+    max-height: calc(70vh - var(--header-height) - 2rem);
     object-fit: contain;
     margin-bottom: 1rem;
 }
