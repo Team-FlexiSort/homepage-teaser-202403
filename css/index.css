@@ -44,14 +44,12 @@
 
 @media screen and (max-width: 950px) {
     :root {
-        --main-width: 100%;
+        --main-width: calc(100% - 2rem);
     }
 }
 
 @media screen and (max-width: 768px) {
     :root {
-        --main-width: 100%;
-
         --header-height: 60px;
         
         --xlarge-font-size: 30px;
