@@ -284,7 +284,7 @@ div.section-container > div.image > img {
         flex-direction: column;
     }
 
-    div.section-container > div {
+    div.section-container > div:nth-child(n) {
         padding: 0;
     }
 }
