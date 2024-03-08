@@ -341,7 +341,8 @@ div.logo {
 
 @media screen and (max-width: 900px) {
     #key-visual-img-slideshow > span {
-        display: inline;
+        /*display: inline;*/
+        display: none;
     }
 
     #key-visual {
