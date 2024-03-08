@@ -150,7 +150,7 @@ ul.simple-list > li::before {
     position: absolute;
     left: 0.5rem;
     width: 2px;
-    height: 90%;
+    height: 85%;
     top: 50%;
     transform: translateY(-50%);
     background-color: var(--theme-green);
