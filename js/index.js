@@ -83,6 +83,7 @@ const generateSlideshow = new Promise((resolve, reject) => {
                 slideshowImgElementsArray[lastImage].classList.remove('show');
                 slideshowImgElementsArray[lastImage].classList.remove('after');
                 slideshowImgElementsArray[currentImage].classList.add('show');  // 初回の画像表示用
+                slideshowCaptionElementsArray[currentImage].classList.add('show');  // 初回のキャプション表示用
                 setTimeout(() => {
                     slideshowImgElementsArray[nextImage].classList.add('show');
                     slideshowImgElementsArray[currentImage].classList.add('after');
@@ -100,4 +101,35 @@ const generateSlideshow = new Promise((resolve, reject) => {
             resolve();
         })
         .catch(error => console.error(error));
+});
+
+let youTubeUrl = '';
+
+function videoPlayerSwitch() {
+    const videoViewElement = document.getElementById('key-visual-player');
+    if (videoViewElement.style.display == "none" || videoViewElement.classList.contains('disabled')) {
+        if (videoViewElement.getAttribute('src') != '') videoViewElement.setAttribute('src', '');
+    }
+    else {
+        if (videoViewElement.getAttribute('src') == '') videoViewElement.setAttribute('src', youTubeUrl);
+    }
+}
+
+const generateVideoView = generateSlideshow.then(() => {
+    return new Promise((resolve, reject) => {
+        const videoViewElement = document.getElementById('key-visual-player');
+        // fetch index-video.json and put the url into the videoViewElement
+        fetch('/data/index-video.json',{cache: "no-store"})
+            .then(response => response.json())
+            .then(data => {
+                youTubeUrl = 'https://www.youtube.com/embed/' + data.id + '?start=' + data.start + '&si=C_KkbHkAyLTeIPM_&controls=0&autoplay=1&mute=1&loop=1&playlist=' + data.id
+                if (data["video-enabled"] == false) videoViewElement.classList.add('disabled');
+
+                videoPlayerSwitch();
+                // window.addEventListener('load', videoPlayerSwitch);
+                window.addEventListener('resize', videoPlayerSwitch);
+                resolve();
+            })
+            .catch(error => console.error(error));
+    });
 });
