@@ -215,8 +215,91 @@ div.logo {
 
 #key-visual {
     height: var(--key-visual-height);
-    background-color: rgba(0, 0, 0, 0.5);
     position: relative;
+    overflow: hidden;
+    padding: 0;
+}
+
+#key-visual::before {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 30;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+#key-visual-img-slideshow {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+#key-visual-img-slideshow > img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 110%;
+    height: 110%;
+    object-fit: cover;
+    transform: translateX(-50%) translateY(-50%);
+    z-index: 1;
+    visibility: collapse;
+    opacity: 0;
+}
+
+@keyframes slideshow-move {
+    0% {
+        transform: translateX(-50%) translateX(-1.5rem) translateY(-50%);
+    }
+
+    100% {
+        transform: translateX(-50%) translateX(1.5rem) translateY(-50%);
+    }
+}
+
+#key-visual-img-slideshow > img.show {
+    visibility: visible;
+    opacity: 1;
+    animation: slideshow-move 8s linear;
+    transition: opacity 1s ease-in-out;
+}
+
+#key-visual-img-slideshow > img.show.after {
+    z-index: 2;
+    opacity: 0;
+}
+
+#key-visual-img-slideshow > span {
+    position: absolute;
+    z-index: 31;
+    opacity: 0;
+    visibility: collapse;
+    transition: 1s ease-in-out;
+    bottom: 0.3rem;
+    right: 0.3rem;
+    color: #fff;
+    letter-spacing: 0.025rem;
+
+    display: none;
+    /* YouTubeを貫通して表示するバグ。キャプションのみnoneにすることで最悪キャプションだけ犠牲にして表示できる */
+}
+
+#key-visual:has(#key-visual-player.disabled) #key-visual-img-slideshow > span {
+    display: inline;
+}
+
+#key-visual-img-slideshow > span.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+@media screen and (max-width: 900px) {
+    #key-visual-img-slideshow > span {
+        display: inline;
+    }
 }
 
 #key-visual-text {
@@ -226,6 +309,7 @@ div.logo {
     color: white;
     display: flex;
     flex-direction: column;
+    z-index: 32;
 }
 
 #key-visual-text div:nth-child(1) {
