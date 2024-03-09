@@ -60,10 +60,6 @@
         --nav-font-size: 1rem;
         --bottom-heading-font-size: 12vw;
     }
-
-    nav {
-        display: none;
-    }
 }
 
 body {
@@ -200,11 +196,169 @@ nav > ul > li {
 }
 
 nav > ul > li > a {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 500;
     text-decoration: none;
     color: white;
+}
+
+nav > ul > li > a > div:nth-child(1) {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
     border-bottom: solid 1px white;
+}
+
+nav > ul > li > a > div:nth-child(2) {
+    display: none;
+}
+
+label.menu-three-bar-btn {
+    position: relative;
+    width: 1.8rem;
+    height: 44px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    display: none;
+}
+
+label.menu-three-bar-btn > input[type=checkbox] {
+    display: none; /* チェックボックスを非表示にする */
+}
+
+label.menu-three-bar-btn > div.bars {
+    width: 1.8rem;
+    height: 1.8rem;
+    position: relative;
+}
+
+label.menu-three-bar-btn > div.bars > span {
+    position: absolute;
+    left: 0;
+    display: inline-block;
+    transition: .25s ease-in-out;
+    content: "";
+    height: 0.1rem;
+    width: 100%;
+    background-color: #fff;
+    transform-origin: left center;
+    transform: none;
+    opacity: 1;
+}
+
+label.menu-three-bar-btn > div.bars > span:nth-of-type(1) {
+    top: 50%;
+}
+
+label.menu-three-bar-btn > div.bars > span:nth-of-type(2) {
+    top: 0;
+}
+
+label.menu-three-bar-btn > div.bars > span:nth-of-type(3) {
+    bottom: 0;
+}
+
+label.menu-three-bar-btn > div.caption {
+    width: 100%;
+    display: inline-block;
+    margin-top: 0.4rem;
+    font-size: 0.5rem;
+    line-height: 0.5rem;
+    height: 0.5rem;
+    text-align: center;
+    position: relative;
+}
+
+label.menu-three-bar-btn > div.caption > span {
+    display: inline-block;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: .25s ease-in-out;
+}
+
+label.menu-three-bar-btn > div.caption > span:nth-child(1), label.menu-three-bar-btn:has(> input[type=checkbox]:checked) > div.caption > span:nth-child(2) {
+    visibility: visible;
+    opacity: 1;
+}
+
+label.menu-three-bar-btn > div.caption > span:nth-child(2), label.menu-three-bar-btn:has(> input[type=checkbox]:checked) > div.caption > span:nth-child(1) {
+    visibility: collapse;
+    opacity: 0;
+}
+
+label.menu-three-bar-btn:has(> input[type=checkbox]:checked) > div.bars > span:nth-of-type(1) {
+    opacity: 0;
+}
+
+label.menu-three-bar-btn:has(> input[type=checkbox]:checked) > div.bars > span:nth-of-type(2) {
+    transform: skewY(45deg) translateY(-50%);
+}
+
+label.menu-three-bar-btn:has(> input[type=checkbox]:checked) > div.bars > span:nth-of-type(3) {
+    transform: skewY(-45deg) translateY(50%);
+}
+
+@media screen and (max-width: 768px) {
+    nav {
+        visibility: collapse;
+        opacity: 0;
+        transition: 0.25s ease-in-out;
+
+        position: fixed;
+        /*display: none;*/
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        top: 0;
+        left: 0;
+    }
+
+    header:has(> label.menu-three-bar-btn > input[type=checkbox]:checked) > nav {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    label.menu-three-bar-btn {
+        display: block;
+    }
+
+    nav > ul {
+        margin-top: var(--header-height);
+        display: flex;
+        flex-direction: column;
+    }
+
+    nav > ul > li {
+        width: 100%;
+        height: 5rem;
+        margin: 0;
+        padding-left: 1rem;
+        border-bottom: solid 1px #fff;
+    }
+
+    nav > ul > li > a {
+        display: block;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    nav > ul > li > a > div:nth-child(1) {
+        border-bottom: none;
+        font-size: 1.35rem;
+    }
+
+    nav > ul > li > a > div:nth-child(2) {
+        display: block;
+        margin-left: 1rem;
+        font-size: var(--font-size);
+    }
 }
 
 div.logo {
