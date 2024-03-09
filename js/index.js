@@ -31,6 +31,8 @@ anchorLinks.forEach(link => {
                 behavior: 'smooth'
             });
         }
+        const mbMenuChkBoxElement = document.getElementById('mb-menu-chkbox');
+        if (mbMenuChkBoxElement.checked) mbMenuChkBoxElement.checked = false;
     });
 });
 
