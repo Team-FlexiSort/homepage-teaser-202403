@@ -494,7 +494,7 @@ div.logo {
 }
 
 @media screen and (max-width: 900px) {
-    #key-visual-img-slideshow > span {
+    #key-visual:has(#key-visual-player.disabled) #key-visual-img-slideshow > span {
         /*display: inline;*/
         display: none;
     }
